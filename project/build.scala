@@ -209,6 +209,7 @@ object build extends Build {
       name := "specs2-matcher-extra",
       libraryDependencies ++=
         (if (scalazVersion.value == "7.1.0") Seq("org.scalaz.stream" %% "scalaz-stream" % "0.5a")
+         else if (scalazVersion.value.startsWith("7.2")) Seq("org.scalaz.stream" %% "scalaz-stream" % "0.8.6")
          else                                Seq("org.scalaz.stream" %% "scalaz-stream" % "0.5")) ++
         (if (scalaVersion.value.startsWith("2.11")) Nil else paradisePlugin)
     )
